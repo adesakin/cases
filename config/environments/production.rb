@@ -63,7 +63,7 @@ Cases::Application.configure do
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
-  # config.action_mailer.raise_delivery_errors = false
+  # config.action_mailer.raise_delivery_errors = true
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation can not be found).
@@ -77,4 +77,16 @@ Cases::Application.configure do
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
+    config.action_mailer.default_url_options = { :host => 'cases.lopworks.com' }
+  
+    config.action_mailer.smtp_settings = {
+    :address   => "smtp.mandrillapp.com",
+    :port      => 25,
+    :enable_starttls_auto => true, 
+    :user_name => "ademola@lopworks.com",
+    :password  => "Y8E0mGhApCprGSFNv9d0Gw", # SMTP password is any valid API key
+    :authentication => 'login', 
+    :domain => 'schoolminds.com'
+  }
+
 end
