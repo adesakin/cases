@@ -1,0 +1,24 @@
+%h4 Use Cases
+
+%table
+  %thead{style: "background-color: #9E344B; color: #fff;"}
+    %tr
+      %th ID
+      %th Name
+      %th Description
+      %th State
+      %th
+  
+
+  %tbody
+    - @use_cases.each do |use_case|
+      %tr
+        %td= use_case.id
+        %td= link_to use_case.name, use_case
+        %td= use_case.description
+        %td= use_case.state
+        %td= link_to 'Destroy', use_case, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Use case', new_use_case_path

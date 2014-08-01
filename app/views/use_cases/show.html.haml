@@ -1,0 +1,39 @@
+
+%b
+  %h4= link_to 'Back to Use Cases', use_cases_path
+
+%p#notice= notice
+
+%p
+  %b= " #{@use_case.id} - #{@use_case.name}"
+%p
+  %b Description:
+  %br= best_in_place @use_case, :description
+%p
+  %b Pre condition:
+  %br= best_in_place @use_case, :pre_condition
+
+%b Standard flow:
+= best_in_place @use_case, :standard_flow, :display_with => :simple_format, :type => :textarea
+
+
+%b Alternate flow:
+= best_in_place @use_case, :alternate_flow, :display_with => :simple_format, :type => :textarea
+
+
+%b Post condition:
+= best_in_place @use_case, :post_condition, :display_with => :simple_format, :type => :textarea
+%br
+
+%b Open issue:
+= best_in_place @use_case, :open_issue, :display_with => :simple_format, :type => :textarea
+
+
+%p
+  %b State:
+  %br= @use_case.state
+
+
+= link_to 'Edit', edit_use_case_path(@use_case)
+
+

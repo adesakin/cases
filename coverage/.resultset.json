@@ -1,0 +1,94 @@
+{
+  "Unit Tests": {
+    "coverage": {
+      "/Users/osindero/Dev/Active/cases/app/models/use_case.rb": [
+        1,
+        null
+      ],
+      "/Users/osindero/Dev/Active/cases/test/controllers/use_cases_controller_test.rb": [
+        1,
+        null,
+        1,
+        1,
+        0,
+        null,
+        null,
+        1,
+        0,
+        0,
+        0,
+        null,
+        null,
+        1,
+        0,
+        0,
+        null,
+        null,
+        1,
+        0,
+        0,
+        null,
+        null,
+        0,
+        null,
+        null,
+        1,
+        0,
+        0,
+        null,
+        null,
+        1,
+        0,
+        0,
+        null,
+        null,
+        1,
+        0,
+        0,
+        null,
+        null,
+        1,
+        0,
+        0,
+        null,
+        null,
+        0,
+        null,
+        null
+      ],
+      "/Users/osindero/Dev/Active/cases/test/helpers/use_cases_helper_test.rb": [
+        1,
+        null,
+        1,
+        null
+      ],
+      "/Users/osindero/Dev/Active/cases/app/helpers/application_helper.rb": [
+        1,
+        null
+      ],
+      "/Users/osindero/Dev/Active/cases/app/helpers/use_cases_helper.rb": [
+        1,
+        null
+      ],
+      "/Users/osindero/Dev/Active/cases/test/integration/manage_case_test.rb": [
+        1,
+        null,
+        1,
+        null,
+        null,
+        null,
+        null
+      ],
+      "/Users/osindero/Dev/Active/cases/test/models/use_case_test.rb": [
+        1,
+        null,
+        1,
+        null,
+        null,
+        null,
+        null
+      ]
+    },
+    "timestamp": 1406709434
+  }
+}

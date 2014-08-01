@@ -1,0 +1,42 @@
+= form_for @use_case do |f|
+  - if @use_case.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@use_case.errors.count, "error")} prohibited this use_case from being saved:"
+      %ul
+        - @use_case.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field.large-6.medium-6.small-12.columns
+    %b= f.label :name
+    = f.text_field :name
+  %hr{style: "border: none;"}
+  .field.large-6.medium-6.small-12.columns
+    %b= f.label :description
+    = f.text_area :description
+  %hr{style: "border: none;"}
+  .field.large-6.medium-6.small-12.columns
+    %b= f.label :pre_condition
+    = f.text_area :pre_condition
+  %hr{style: "border: none;"}
+  .field.large-6.medium-6.small-12.columns
+    %b= f.label :standard_flow, "Standard Flow"
+    = f.text_area :standard_flow
+  %hr{style: "border: none;"}
+  .field.large-6.medium-6.small-12.columns
+    = f.label :alternate_flow
+    = f.text_area :alternate_flow
+  %hr{style: "border: none;"}
+  .field.large-6.medium-6.small-12.columns
+    = f.label :post_condition
+    = f.text_area :post_condition
+  %hr{style: "border: none;"}
+  .field.large-6.medium-6.small-12.columns
+    = f.label :open_issue
+    = f.text_area :open_issue
+  %hr{style: "border: none;"}
+  .field.large-6.medium-6.small-12.columns
+    = f.label :state
+    = f.text_field :state
+  %hr{style: "border: none;"}
+  .actions.large-2.medium-2.columns
+    = f.submit 'Save'
