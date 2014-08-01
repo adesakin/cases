@@ -2,3 +2,6 @@
   .large-3.medium-3.columns{style: "padding:0;"}
     %h1{style: "font-family: 'Proxima Nova', Aria, sans-serif;"}
       %b{style: "font-size: 1em;  color:#ffffff"} Case 2.0
+  .large-2.medium-2.columns.right{style: "padding:0;"}
+    - unless current_user.nil?
+      = link_to "Logout", destroy_user_session_path, :method => :delete, :class => "alice-color"

@@ -1,0 +1,21 @@
+!!!
+%html{lang: "en"}
+  %head
+    %meta{charset: "utf-8"}/
+    %meta{content: "width=device-width, initial-scale=1.0", name: "viewport"}/
+    %title= content_for?(:title) ? yield(:title) : "Use Case 2.0"
+    = stylesheet_link_tag    "application"
+    = javascript_include_tag "vendor/modernizr"
+    = csrf_meta_tags
+  %body
+    #header
+      .row
+        = render '/layouts/header'
+    #container.row
+      #content.large-12.medium-12.columns
+        .large-6.medium-6.columns{style: "padding: 0;"}
+          = yield
+        .large-6.medium-6.columns{style: "padding: 0;"}
+          = yield :right_yield
+
+    = javascript_include_tag "application"

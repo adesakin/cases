@@ -1,4 +1,5 @@
 Cases::Application.routes.draw do
+  devise_for :users
   resources :use_cases
 
   get 'cases' => 'use_cases#index'
