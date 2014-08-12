@@ -9,15 +9,15 @@ Ivar Jacobson came up with [Use Case Essentials 2.0](http://www.ivarjacobson.com
 
 Let's just try to apply a similar idea in developing this application by identifiying the critical use cases.
 
-1. Sign in on cases (note that this would easily translate to 'As a user I want to Sign in on cases' in user stories)
-2. Access Projects
-3. Access Use Cases
-4. Manage Members
-5. Manage Use Cases Documents
-6. Slice Use Cases
-7. Prepare and Analyze Use Case Slice
-8. Inspect and Adapt Use Case Slice
+- [ ] Sign in on cases (note that this would easily translate to 'As a user I want to Sign in on cases' in user stories)
+- [x] Access Projects
+- [x] Access Use Cases
+- [ ] Manage Members
+- [ ] Manage Use Cases Documents
+- [ ] Slice Use Cases
+- [ ] Prepare and Analyze Use Case Slice
+- [ ] Inspect and Adapt Use Case Slice
 
 Not yet analyzed steps 6 - 8 above but will delve deep into them when I reach there. Beauty of Agile!
 
-Now let's get going. I will try to keep a live demo on Amazon and/or Heroku.
+Now let's get going. I will try to keep a live demo on Heroku.
