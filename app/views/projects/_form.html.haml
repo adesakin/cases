@@ -1,0 +1,14 @@
+= simple_form_for @project, remote: true do |f|
+  - if @project.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@project.errors.count, "error")} prohibited this project from being saved:"
+      %ul
+        - @project.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    %b= f.input :name, label: false, :input_html => {maxlength: 30}
+
+  .actions{style: 'display: none;'}
+    = f.submit 'Save'
+  

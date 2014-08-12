@@ -1,5 +1,11 @@
-%h4 New Case
+%h3= "#{@project.name} - New Use Case" 
+
+%div
+  %h4= link_to 'Back to Use Cases', project_path(@use_case.project)
+  .large-4.medium-4.small-6.columns{style: "padding:0;"}
+  .large-8.medium-8.small-6.columns{style: "padding:0;"}
+    #new_project_placeholder
 
 = render 'form'
 
-= link_to 'Back', use_cases_path
+

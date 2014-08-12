@@ -1,10 +1,13 @@
 Cases::Application.routes.draw do
+  resources :projects do
+    resources :use_cases
+  end
+
+  get "home/index"
   devise_for :users
-  resources :use_cases
+  
 
-  get 'cases' => 'use_cases#index'
-
-  root 'use_cases#index'
+  root 'home#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

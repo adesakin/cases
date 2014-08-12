@@ -1,21 +1,21 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: MyString
-  description: MyText
-  pre_condition: MyText
-  standard_flow: MyText
-  alternate_flow: MyText
-  post_condition: MyText
-  open_issue: MyText
-  state: MyString
+# one:
+#   name: MyString
+#   description: MyText
+#   pre_condition: MyText
+#   standard_flow: MyText
+#   alternate_flow: MyText
+#   post_condition: MyText
+#   open_issue: MyText
+#   state: MyString
 
-two:
-  name: MyString
-  description: MyText
-  pre_condition: MyText
-  standard_flow: MyText
-  alternate_flow: MyText
-  post_condition: MyText
-  open_issue: MyText
-  state: MyString
+# two:
+#   name: MyString
+#   description: MyText
+#   pre_condition: MyText
+#   standard_flow: MyText
+#   alternate_flow: MyText
+#   post_condition: MyText
+#   open_issue: MyText
+#   state: MyString

@@ -13,8 +13,9 @@
 //= require jquery
 //= require jquery.turbolinks
 //= require jquery_ujs
-//= require foundation
+//= require jquery.remotipart
 //= require jquery.ui.all
+//= require foundation
 //= require turbolinks
 //= require cocoon
 //= require_tree .
@@ -28,6 +29,14 @@ $(function(){
       jQuery(".best_in_place").best_in_place();
     });
 
+
+$(document).ready(function() {
+  $('body').on('ajax:beforeSend', 'a[data-remote="true"]', function(event, xhr, settings) {
+    if (settings.type == 'GET') {
+      xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    }
+  });
+});
 
 
 });

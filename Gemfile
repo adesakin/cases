@@ -10,10 +10,11 @@ gem 'workflow', '~> 1.0.0'
 gem 'ancestry'
 gem 'kaminari'
 gem 'haml-rails'
-gem 'cocoon'
+gem 'remotipart', '~> 1.2'
 gem 'jquery-ui-rails', '~> 4.2.1'
 gem 'puma'
 gem 'quiet_assets'
+gem 'cocoon'
 
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
@@ -48,14 +49,17 @@ end
 
 group :test do
   gem 'factory_girl_rails'
-  gem "minitest"
-  gem "capybara"
-  gem "minitest-capybara"
+  gem "minitest-rails-capybara"
   gem 'turn'
   gem 'database_cleaner'
   gem 'guard'
   gem 'guard-minitest'
   gem 'simplecov'
+  gem 'poltergeist'
+  gem 'minitest-metadata'
+  gem 'minitest-spec-expect'
+  gem 'launchy'
+  gem 'test_after_commit'
 end
 
 

@@ -7,7 +7,9 @@
     <title><%= content_for?(:title) ? yield(:title) : "Use Case 2.0" %></title>
 
     <%= stylesheet_link_tag    "application" %>
+    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
     <%= javascript_include_tag "vendor/modernizr" %>
+    <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
   </head>
 
@@ -19,12 +21,20 @@
     </div>
     <div id='container' class="row">
       <div id='content' class='large-12 medium-12 columns'>
+        <div class="large-6 medium-6 columns" style="padding-left: 0;">
 
-      <%= yield %>
+          <%= yield %>
+        </div>
+        <div id="right-yield" class="large-6 medium-6 columns" style="padding-right: 0; margin-top: 4.25rem;">
+
+          <%= yield  :right_yield %>
+        </div>
+
+        </div>
       
       
       </div>
     </div>
-    <%= javascript_include_tag "application" %>
+    
   </body>
 </html>

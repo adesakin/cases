@@ -6,7 +6,13 @@ body {
   line-height: 18px;
 }
 
-p, ol, ul, td {
+label{
+  font-family: Montserrat, Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  line-height: 18px;
+}
+
+p, ol, ul, td{
   font-family: Arial, Helvetica, sans-serif;
   font-size: 14px;
   line-height: 18px;
@@ -19,10 +25,8 @@ pre {
 }
 
 a {
-  color: #000;
-  &:visited {
-    color: steelblue;
-  }
+  color: #23629F;
+
   &:hover {
     color: #fff;
     background-color: #000;
@@ -67,3 +71,50 @@ div {
     list-style: square;
   }
 }
+
+h1, h2, h3, h4, h5, h4.title, h5.title {
+  font-family: Montserrat, Helvetica, Arial, sans-serif;
+  font-weight: bold;
+  h4, h5, h4.title, h5.title {
+    font-size: 1.2em;
+  }
+
+}
+
+.btn {
+    background-color: #23629F;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border: none;
+    color: #fff; 
+    font-size: 14px;
+    font-weight: bold;
+}
+
+
+input[type="text"],
+input[type="password"],
+input[type="date"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="month"],
+input[type="week"],
+input[type="email"],
+input[type="number"],
+input[type="search"],
+input[type="tel"],
+input[type="time"],
+input[type="url"],
+textarea {
+  padding: 0.4rem;
+  height: 2rem;
+  font-size: 1rem;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  form & {
+    background-color: aliceblue;
+  }
+}
+

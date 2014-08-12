@@ -1,4 +1,5 @@
-= form_for @use_case do |f|
+
+= simple_form_for @use_case, url: project_use_cases_path(project_id: @use_case.project.id), html: { novalidate: false } do |f|
   - if @use_case.errors.any?
     #error_explanation
       %h2= "#{pluralize(@use_case.errors.count, "error")} prohibited this use_case from being saved:"
@@ -6,37 +7,27 @@
         - @use_case.errors.full_messages.each do |msg|
           %li= msg
 
-  .field.large-6.medium-6.small-12.columns
-    %b= f.label :name
-    = f.text_field :name
-  %hr{style: "border: none;"}
-  .field.large-6.medium-6.small-12.columns
-    %b= f.label :description
-    = f.text_area :description
-  %hr{style: "border: none;"}
-  .field.large-6.medium-6.small-12.columns
-    %b= f.label :pre_condition
-    = f.text_area :pre_condition
-  %hr{style: "border: none;"}
-  .field.large-6.medium-6.small-12.columns
-    %b= f.label :standard_flow, "Standard Flow"
-    = f.text_area :standard_flow
-  %hr{style: "border: none;"}
-  .field.large-6.medium-6.small-12.columns
-    = f.label :alternate_flow
-    = f.text_area :alternate_flow
-  %hr{style: "border: none;"}
-  .field.large-6.medium-6.small-12.columns
-    = f.label :post_condition
-    = f.text_area :post_condition
-  %hr{style: "border: none;"}
-  .field.large-6.medium-6.small-12.columns
-    = f.label :open_issue
-    = f.text_area :open_issue
-  %hr{style: "border: none;"}
-  .field.large-6.medium-6.small-12.columns
-    = f.label :state
-    = f.text_field :state
-  %hr{style: "border: none;"}
   .actions.large-2.medium-2.columns
-    = f.submit 'Save'
+    = f.submit 'Save', class: 'btn'
+
+  %hr{style:"border:none;"}
+  .notice
+    &nbsp;
+
+
+  .new-use-case-fields
+    %b= f.input :name, :wrapper_html => {class: 'field columns'}, input_html: {required: true}, required: true 
+    %b= f.input :description, :wrapper_html => {class: 'field columns'}, input_html: {required: true}, required: true 
+    %b= f.input :pre_condition, :wrapper_html => {class: 'field columns'}, required: false 
+    %b= f.input :standard_flow, :wrapper_html => {class: 'field columns'}, :input_html => {rows: 10, required: true}, required: true 
+    %b= f.input :alternate_flow, :wrapper_html => {class: 'field columns'}, :input_html => {rows: 10}, required: false
+    %b= f.input :post_condition, :wrapper_html => {class: 'field columns'}, required: false
+    %b= f.input :open_issue, :wrapper_html => {class: 'field columns'}, required: false
+
+
+    .field.columns
+      %b= f.label :state
+      = f.text_field :state
+
+    %hr{style: "border:none"}
+

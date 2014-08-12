@@ -1,0 +1,20 @@
+
+
+%table#project_use_cases
+  %thead{style: "background-color: #9E344B;"}
+    %tr
+      %th ID
+      %th Name
+      %th State
+      %th
+  
+
+  %tbody
+    - @use_cases.each do |use_case|
+      %tr
+        %td= use_case.id
+        %td= link_to use_case.name, project_use_case_path(project_id: use_case.project.id, id: use_case.id)
+        %td= use_case.state
+        %td= link_to 'Destroy', project_use_case_path(project_id: use_case.project.id, id: use_case.id), :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br

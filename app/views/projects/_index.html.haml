@@ -1,0 +1,17 @@
+%h3 Project Listing
+
+%div
+  %br
+  .large-4.medium-4.small-6.columns{style: "padding:0;"}
+    = link_to 'New Project', new_project_path, class: 'btn button', remote: true
+  .large-8.medium-8.small-6.columns{style: "padding:0;"}
+    #new_project_placeholder
+
+%hr{style:"border:none;"}
+.notice
+  &nbsp;
+
+
+= render '/projects/table_projects'
+
+

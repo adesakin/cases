@@ -44,13 +44,10 @@ table thead tr th, table tbody tr td {
 
 table thead tr th{
  color: #fff;
+ background-color: #d36247;
 }
 
 
-h4, h5, h4.title, h5.title {
-    font-size: 1.2em;
-  font-family: Arial, Helvetica, sans-serif;;
-}
 
 b label {
     font-weight: bold;
@@ -58,6 +55,6 @@ b label {
 
 /* header layout*/
 #header {
-    background-color: #27556c;
+    background-color: #23629F;
     height: 5em;
 }
