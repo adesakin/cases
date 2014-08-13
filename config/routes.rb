@@ -1,4 +1,8 @@
 Cases::Application.routes.draw do
+  get "reveal/piece"
+  resources :members
+  patch "members.:id" => 'members#update'
+
   resources :projects do
     resources :use_cases
   end

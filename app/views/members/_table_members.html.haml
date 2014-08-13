@@ -1,0 +1,15 @@
+%table#members
+  %thead
+    %tr
+      %th Name
+      %th Title
+      %th Role
+
+  - @members.each do |member|
+    %tbody
+      %tr
+        %td= link_to member.user.name, member, remote: true
+        %td= member.title
+        %td= 'Role'
+
+%br

@@ -22,10 +22,12 @@ class ActionDispatch::IntegrationTest
   Capybara.javascript_driver = :poltergeist
   self.use_transactional_fixtures = false
 
+
   before :each do
-    Capybara.reset_sessions!
     @request.host = 'http://localhost:3002'
-    if metadata[:js]
+    Capybara.reset_sessions!
+    
+    if metadata[:js] == true
       Capybara.current_driver = Capybara.javascript_driver
     else
       Capybara.current_driver = Capybara.default_driver

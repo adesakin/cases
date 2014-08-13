@@ -4,7 +4,8 @@ FactoryGirl.define do
       username "foo"
     end
   	#username "foo"
-  	email { "#{username}@test.cases.com" } 
+  	sequence(:email) { |n| "#{username}#{n}@test.cases.com" } 
+    password "password"
 
   end
 
@@ -20,5 +21,17 @@ FactoryGirl.define do
 
   end
 
+  factory :member do
+    first_name "User FN"
+    last_name "User SN"
+    user
+    factory :member_new do
+      association :user, strategy: :build
+    end
+  end
+
+  factory :piece do
+    sequence(:name) {|n| "Document Number #{n}"}
+  end
 	
 end

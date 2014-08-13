@@ -1,0 +1,36 @@
+
+= simple_form_for @use_case, url: project_use_case_path(project_id: @use_case.project.id, id: @use_case.id), html: { novalidate: false, multipart: true } do |f|
+  - if @use_case.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@use_case.errors.count, "error")} prohibited this use_case from being saved:"
+      %ul
+        - @use_case.errors.full_messages.each do |msg|
+          %li= msg
+
+
+
+  %hr{style:"border:none;"}
+  .notice
+    &nbsp;
+
+
+  .new-use-case-fields.large-12.medium-12.columns{style: "background-color: aliceblue; margin-bottom: 1rem;"}
+    %p
+      %br
+      %b= "Upload New Document"
+
+
+    #pieces
+      %p
+        %span
+          
+          = f.simple_fields_for :pieces, @use_case.pieces.build do |piece|
+            = f.submit 'Save', class: 'btn'
+            = render 'piece_fields', :f => piece
+          .links
+            = link_to_add_association 'More Document', f, :pieces
+
+
+
+
+    

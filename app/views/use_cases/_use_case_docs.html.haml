@@ -1,0 +1,6 @@
+.large-12.medium-12.columns
+  %ol#use_case_docs
+    - @use_case.pieces.each do |piece|
+      - unless piece.new_record? 
+        %li= link_to piece.doc_before_type_cast, piece.doc.url
+

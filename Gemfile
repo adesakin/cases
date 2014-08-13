@@ -15,6 +15,7 @@ gem 'jquery-ui-rails', '~> 4.2.1'
 gem 'puma'
 gem 'quiet_assets'
 gem 'cocoon'
+gem 'carrierwave'
 
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
@@ -56,6 +57,7 @@ group :test do
   gem 'guard-minitest'
   gem 'simplecov'
   gem 'poltergeist'
+  gem 'capybara-webkit'
   gem 'minitest-metadata'
   gem 'minitest-spec-expect'
   gem 'launchy'

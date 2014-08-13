@@ -56,5 +56,8 @@ b label {
 /* header layout*/
 #header {
     background-color: #23629F;
-    height: 5em;
+}
+
+ul.sub-nav {
+    margin-top: 1em;
 }

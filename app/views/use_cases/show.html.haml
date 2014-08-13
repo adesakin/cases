@@ -12,3 +12,11 @@
 
 
 = render '/use_cases/use_case_detail'
+
+
+= content_for :right_yield do
+  %b Relevant Documents
+  %div.uc-display
+    = render 'use_case_doc_form'
+    = render 'use_case_docs'
+    

@@ -1,0 +1,23 @@
+= simple_form_for @user, url: members_path(@user),  html: { novalidate: false }, remote: true  do |f|
+
+  .form-actions
+    = f.button :submit
+
+  %hr{style:"border:none;"}
+  .notice   
+    = f.error_notification
+
+  .form-inputs
+    = f.input :email, wrapper_html: {class: "large-6 medium-6 small-6 columns", style: "padding-left: 0;"},input_html: {required: true}, required: true
+    - if @user.new_record?
+      = f.input :password, wrapper_html: {class: "large-6 medium-6 small-6 columns", style: "padding-right: 0;"}, input_html: {required: true}, required: true
+
+    %hr{style: "border:none;"}
+    
+    = f.simple_fields_for :member do |member_form|
+      = member_form.input :first_name, label: "First Name", wrapper_html: {class: "large-6 medium-6 small-6 columns", style: "padding-left: 0;"}, input_html: {required: true}
+      = member_form.input :last_name, label: "Last Name", wrapper_html: {class: "large-6 medium-6 small-6 columns", style: "padding-right: 0;"}, input_html: {required: true}
+      = member_form.input :title
+      = member_form.input :note
+
+

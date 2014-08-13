@@ -1,0 +1,18 @@
+%h4= @member.user.name
+
+%p#notice= notice
+
+
+%p
+  %b Email:
+  = @member.user.email
+%p
+  %b Title:
+  = @member.title
+%p
+  %b Note:
+  = @member.note
+
+= link_to 'Edit', edit_member_path(@member), remote: true
+\|
+= link_to 'Delete', member_path(@member), method: :delete, data: { confirm: "Are you sure?" }

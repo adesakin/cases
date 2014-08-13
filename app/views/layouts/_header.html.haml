@@ -1,8 +1,17 @@
-.large-12.medium-12.columns
-  .large-4.medium-4.columns{style: "padding:0;"}
-    = link_to root_path do
-      %h1{style: "color: whitesmoke;"}
-        Case 2.0
-  .large-2.medium-2.columns.right{style: "padding:0;"}
+.large-4.medium-4.columns
+  = link_to root_path do
+    %h1{style: "color: whitesmoke;"}
+      Case 2.0
+.large-8.medium-8.columns
+  %ul.sub-nav
     - unless current_user.nil?
-      = link_to "Logout", destroy_user_session_path, :method => :delete, :class => "alice-color"
+      .left
+        %li
+          %b= link_to 'Projects', home_index_path
+        %li
+          %b= link_to 'Members', members_path
+      .right
+        %li= link_to current_user.email, '#'
+        %li.divider
+        %li= link_to "Logout", destroy_user_session_path, :method => :delete, :class => "alice-color"
+

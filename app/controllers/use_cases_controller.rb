@@ -32,7 +32,6 @@ class UseCasesController < ApplicationController
   def create
     @project = Project.find(params[:project_id])
     @use_case = @project.use_cases.build(use_case_params)
-
     respond_to do |format|
       if @use_case.save
         format.html { redirect_to project_use_case_path(@use_case.project, @use_case), notice: 'Use case was successfully created.' }
@@ -77,6 +76,7 @@ class UseCasesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def use_case_params
-      params.require(:use_case).permit(:name, :description, :pre_condition, :standard_flow, :alternate_flow, :post_condition, :open_issue, :state, :project_id)
+      params.require(:use_case).permit(:name, :description, :pre_condition, :standard_flow, :alternate_flow, :post_condition, :open_issue, :state, :project_id, \
+          pieces_attributes: [:name, :doc])
     end
 end
