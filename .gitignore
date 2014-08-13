@@ -10,7 +10,6 @@ capybara-*.html
 /tmp
 /db/*.sqlite3
 /public/system
-/public/uploads/piece/doc/
 /coverage/
 /spec/tmp
 **.orig
@@ -36,4 +35,4 @@ config/secrets.yml
 # unless supporting rvm < 1.11.0 or doing something fancy, ignore this:
 .rvmrc
 public/uploads/piece/doc/*
-public/uploads/tmp/1407931697-30285-3551
+public/uploads/tmp/*
