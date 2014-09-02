@@ -9,11 +9,11 @@ Ivar Jacobson came up with [Use Case Essentials 2.0](http://www.ivarjacobson.com
 
 Let's just try to apply a similar idea in developing this application by identifiying the critical use cases.
 
-- [ ] Sign in on cases (note that this would easily translate to 'As a user I want to Sign in on cases' in user stories)
+- [x] Sign in on cases (note that this would easily translate to 'As a user I want to Sign in on cases' in user stories)
 - [x] Access Projects
 - [x] Access Use Cases
-- [ ] Manage Members
-- [ ] Manage Use Cases Documents
+- [x] Manage Members
+- [x] Manage Use Cases Documents
 - [ ] Slice Use Cases
 - [ ] Prepare and Analyze Use Case Slice
 - [ ] Inspect and Adapt Use Case Slice
