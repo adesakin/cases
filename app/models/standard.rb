@@ -1,0 +1,3 @@
+class Standard < Step
+
+end

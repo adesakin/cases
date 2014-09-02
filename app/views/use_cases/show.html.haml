@@ -15,8 +15,18 @@
 
 
 = content_for :right_yield do
-  %b Relevant Documents
-  %div.uc-display
-    = render 'use_case_doc_form'
-    = render 'use_case_docs'
+  %dl.tabs{"data-options" => "deep_linking:true", "data-tab" => ""}
+    %dd
+      = content_tag(:a, 'Documents', href: "#documents")
+    %dd
+      = content_tag(:a, 'Slices', href: "#splices")
+
+  .tabs-content
+    #documents.content
+      .uc-display
+        = render 'use_case_doc_form'
+        = render 'use_case_docs'
+
+    #splices.content
+      .uc-splice
     

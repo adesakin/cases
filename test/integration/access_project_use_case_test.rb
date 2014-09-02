@@ -51,6 +51,17 @@ class AccessProjectUseCaseTest < ActionDispatch::IntegrationTest
     current_path.must_equal  project_path(@use_case.project)
   end
 
+  test 'use case has sub-section for documents' do
+    find('table#projects', text: 'Test Project').click_link(@use_case.project.name)
+    find('table#project_use_cases').click_link(@use_case.name)
+    within(:css, '#right-yield') do
+      page.must_have_css('.tabs', text: 'Documents' )
+      find('.tabs', text: 'Documents' ).click
+
+    end
+
+  end
+
   # test "the truth" do
   #   assert true
   # end

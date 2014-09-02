@@ -7,27 +7,17 @@
         - @use_case.errors.full_messages.each do |msg|
           %li= msg
 
-
-
-  %hr{style:"border:none;"}
   .notice
 
-
-  .new-use-case-fields.large-12.medium-12.columns{style: "background-color: aliceblue; margin-bottom: 1rem;"}
-    %p
-      %br
-      %b= "Upload New Document"
-
-
+  .new-use-case-fields.large-12.medium-12.columns{style: "background-color: aliceblue;"}
     #pieces
       %p
-        %span
-          
-          = f.simple_fields_for :pieces, @use_case.pieces.build do |piece|
-            = f.submit 'Save', class: 'btn'
-            = render 'piece_fields', :f => piece
+        %span          
+          = f.simple_fields_for :steps, @use_case.steps.build do |step|
+            = render 'step_fields', :f => step
           .links
-            = link_to_add_association 'More Document', f, :pieces
+            = link_to_add_association 'Add a Step', f, :steps, class: 'btn'
+            = f.submit 'Save', class: 'btn link'
 
 
 

@@ -10,7 +10,7 @@ FactoryGirl.define do
   end
 
   factory :use_case do
-    name "Write Use Case"
+    sequence(:name) {|n| "Write Use Case No #{n}"}
     description "As a user I want to write use case"
     standard_flow "1. Click on Create Use Case. 2. Fill in details including - name, description and standard flow"
     project
@@ -33,5 +33,17 @@ FactoryGirl.define do
   factory :piece do
     sequence(:name) {|n| "Document Number #{n}"}
   end
+
+  factory :step, aliases: [:standard] do
+    sequence(:custom_id) {|n| "1.#{n}"}
+    state "defined"
+    description "Step description for user case" 
+    type "Norm"
+    use_case
+  end
+
+
+
+
 	
 end

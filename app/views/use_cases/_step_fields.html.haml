@@ -1,0 +1,4 @@
+.use_case-step-fields.large-12.medium-12.small-12.columns{style: 'padding:0;'}
+  = f.input :description, label: false, as: :string
+  - unless @step_type.nil?
+    = f.input :type, input_html: {value: @step_type, style: 'background-color: yellow;'}, as: :hidden

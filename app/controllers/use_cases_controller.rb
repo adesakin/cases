@@ -77,6 +77,6 @@ class UseCasesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def use_case_params
       params.require(:use_case).permit(:name, :description, :pre_condition, :standard_flow, :alternate_flow, :post_condition, :open_issue, :state, :project_id, \
-          pieces_attributes: [:name, :doc])
+          pieces_attributes: [:name, :doc], steps_attributes: [:description, :state, :type])
     end
 end

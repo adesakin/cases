@@ -55,9 +55,22 @@ b label {
 
 /* header layout*/
 #header {
-    background-color: #23629F;
+    background-color: #004466;
 }
 
 ul.sub-nav {
     margin-top: 1em;
+}
+
+.tabs-content > .content {
+    padding: 0;
+}
+
+.tabs-content {
+    background-color: aliceblue;
+}
+
+.tabs dd.active a {
+  background: #004466;
+  color: whitesmoke;
 }

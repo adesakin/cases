@@ -49,8 +49,10 @@ div {
 
 .field_with_errors {
   padding: 2px;
-  background-color: red;
   display: table;
+  label {
+    color: red;
+  }
 }
 
 #error_explanation {
@@ -76,17 +78,17 @@ div {
   }
 }
 
-h1, h2, h3, h4, h5, h4.title, h5.title {
+h1, h2, h3, h4, h5, h4.title, h5.title, dl.tabs a {
   font-family: Montserrat, Helvetica, Arial, sans-serif;
   font-weight: bold;
-  h4, h5, h4.title, h5.title {
+  h4, h5, h4.title, h5.title, dl.tabs a  {
     font-size: 1.2em;
   }
 
 }
 
 .btn {
-    background-color: #23629F;
+    background-color: #004466;
     padding-top: 5px;
     padding-bottom: 5px;
     padding-left: 10px;
@@ -121,4 +123,20 @@ textarea {
     background-color: aliceblue;
   }
 }
+
+table.flows{
+  padding: 0;
+  border: none;
+  th {
+    padding: 0.625rem 0.625rem 0;
+    background-color: #efefef;
+    h5 {
+      font-size: 14px;
+    }
+  }
+  form input[type="text"] {
+    background-color: ivory;
+  }
+}
+
 

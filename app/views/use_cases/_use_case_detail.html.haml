@@ -3,27 +3,72 @@
 
 %p
   %b= " #{@use_case.id} - #{@use_case.name}"
-%p
-  %b Description:
-  %br= best_in_place @use_case, :description, :url => project_use_case_path(@use_case.project, @use_case)
-%p
-  %b Pre condition:
-  %br= best_in_place @use_case, :pre_condition, :url => project_use_case_path(@use_case.project, @use_case)
 
-%b Standard flow:
-= best_in_place @use_case, :standard_flow, :display_with => :simple_format, :as => :textarea, :url => project_use_case_path(@use_case.project, @use_case)
-
-
-%b Alternate flow:
-= best_in_place @use_case, :alternate_flow, :display_with => :simple_format, :as => :textarea, :url => project_use_case_path(@use_case.project, @use_case)
+%table#description.large-12.medium-12.columns.flows
+  %thead
+    %tr
+      %th
+        %h5 Description
+  %tbody
+    %tr
+      %td= best_in_place @use_case, :description, :url => project_use_case_path(@use_case.project, @use_case)
 
 
-%b Post condition:
-= best_in_place @use_case, :post_condition, :display_with => :simple_format, :as => :textarea, :url => project_use_case_path(@use_case.project, @use_case)
-%br
+%table#precondition.large-12.medium-12.columns.flows
+  %thead
+    %tr
+      %th
+        %h5 Precondition
+  %tbody
+    %tr
+      %td= best_in_place @use_case, :pre_condition, :url => project_use_case_path(@use_case.project, @use_case)
 
-%b Open issue:
-= best_in_place @use_case, :open_issue, :display_with => :simple_format, :as => :textarea, :url => project_use_case_path(@use_case.project, @use_case)
+
+%table#standard_flows.large-12.medium-12.columns.flows
+  %thead
+    %tr
+      %th
+        %h5 Standard flow
+  - @use_case.steps.where(type: 'Standard').each do |step|
+    %tr
+      %td= "#{step.custom_id} #{step.description}"
+  %tr
+    %td{style: "padding:0;"}= render 'step_form', locals: {object: @step_type = 'Standard'}
+ 
+
+
+%table#alternate_flows.large-12.medium-12.columns.flows
+  %thead
+    %tr
+      %th
+        %h5 Alternate flow
+  - @use_case.steps.where(type: 'Alternate').each do |step|
+    %tr
+      %td= "#{step.custom_id} #{step.description}"
+  %tr
+    %td{style: "padding:0;"}= render 'step_form', locals: {object: @step_type = 'Alternate'}
+
+
+%table#postcondition.large-12.medium-12.columns.flows
+  %thead
+    %tr
+      %th
+        %h5 Postcondition
+  %tbody
+    %tr
+      %td= best_in_place @use_case, :post_condition, :url => project_use_case_path(@use_case.project, @use_case)
+
+
+
+%table#openissue.large-12.medium-12.columns.flows
+  %thead
+    %tr
+      %th
+        %h5 Open Issue
+  %tbody
+    %tr
+      %td= best_in_place @use_case, :open_issue, :display_with => :simple_format, :as => :textarea, :url => project_use_case_path(@use_case.project, @use_case)
+
 
 
 %p
