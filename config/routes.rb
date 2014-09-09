@@ -1,10 +1,18 @@
 Cases::Application.routes.draw do
+  
+
   get "reveal/piece"
   resources :members
   patch "members.:id" => 'members#update'
 
   resources :projects do
+    post "/slices/option" => 'slices#option'
     resources :use_cases
+    resources :slices do 
+      collection do
+        post 'option'
+      end
+    end
   end
 
   get "home/index"

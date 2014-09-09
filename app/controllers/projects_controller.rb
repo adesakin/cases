@@ -11,6 +11,7 @@ class ProjectsController < ApplicationController
   # GET /projects/1.json
   def show
     @use_cases = @project.use_cases
+    @slices = @project.slices
   end
 
   # GET /projects/new

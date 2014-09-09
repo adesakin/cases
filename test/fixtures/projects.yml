@@ -1,7 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyString
+  name: Test One Project
+
 
 two:
-  name: MyString
+  name: Test Two Project
+
+three:
+  name: Test Three Project

@@ -1,0 +1,27 @@
+%table
+  %tr
+    %th Use case
+    %th Priority
+    %th Workflow state
+    %th Estimate
+    %th Release
+    %th Order priority
+    %th
+    %th
+    %th
+
+  - @slices.each do |slice|
+    %tr
+      %td= slice.use_case_id
+      %td= slice.priority
+      %td= slice.workflow_state
+      %td= slice.estimate
+      %td= slice.release_id
+      %td= slice.order_priority
+      %td= link_to 'Show', slice
+      %td= link_to 'Edit', edit_slice_path(slice)
+      %td= link_to 'Destroy', slice, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Slice', new_slice_path

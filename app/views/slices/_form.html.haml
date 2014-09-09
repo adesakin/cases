@@ -1,0 +1,13 @@
+= simple_form_for @slice, url: project_slices_path(project_id: @slice.project.id), html: { novalidate: false } do |f|
+
+  = f.error_notification
+
+  .form-inputs
+    = f.input :priority
+    = f.input :workflow_state
+    = f.input :estimate
+    = f.input :release_id
+    = f.input :order_priority
+
+  .form-actions
+    = f.button :submit

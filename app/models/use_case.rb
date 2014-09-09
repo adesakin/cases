@@ -2,6 +2,8 @@ class UseCase < ActiveRecord::Base
   belongs_to :project
   has_many :pieces, as: :documentable
   has_many :steps, dependent: :restrict_with_error
+  has_many :use_case_slices
+  has_many :slices, through: :use_case_slices
   accepts_nested_attributes_for :pieces, :reject_if => :all_blank, :allow_destroy => true
   accepts_nested_attributes_for :steps, :reject_if => :all_blank, :allow_destroy => true
 

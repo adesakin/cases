@@ -19,7 +19,7 @@ gem 'carrierwave'
 gem 'rails_12factor', group: :production
 
 # Use sqlite3 as the database for Active Record
-#gem 'sqlite3'
+gem 'sqlite3'
 gem 'pg'
 
 # Use SCSS for stylesheets
@@ -50,16 +50,17 @@ group :doc do
 end
 
 
+
 group :test do
-  gem 'factory_girl_rails'
+  gem "minitest-rails"
   gem "minitest-rails-capybara"
+  gem 'factory_girl_rails'
   gem 'turn'
   gem 'database_cleaner'
   gem 'guard'
   gem 'guard-minitest'
   gem 'simplecov'
   gem 'poltergeist'
-  gem 'capybara-webkit'
   gem 'minitest-metadata'
   gem 'minitest-spec-expect'
   gem 'launchy'

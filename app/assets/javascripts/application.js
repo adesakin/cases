@@ -27,6 +27,8 @@ $(function(){
 
 	$(document).ready(function() {
       jQuery(".best_in_place").best_in_place();
+      $('#right-yield').stick_in_parent();
+
     });
 
 

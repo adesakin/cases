@@ -1,0 +1,58 @@
+= simple_form_for @slice, url: project_slices_path(project_id: @slice.project.id), html: { novalidate: false }, remote: true do |f|
+
+  = f.error_notification
+
+  .large-12.medium-12.columns
+    %hr{style: 'border: none;'}
+    = f.button :submit, "Save Slice", class: 'slice-save btn' 
+    /= link_to 'Save Slice', project_slices_path(project_id: @project.id), remote: true, class: 'slice-save btn'
+    .right
+      = link_to 'Cancel', option_project_slices_path(project_id: @project.id), method: 'post', remote: true, class: 'slice-cancel btn'
+    %hr{style: 'border: none; margin-bottom: 1rem;'}
+    = hidden_field_tag :flow_array
+    = f.input :estimate
+    = f.simple_fields_for :flows, @slice.flows.build do |flow|
+      = flow.input :step_id, as: 'hidden'
+
+
+    %table.large-12.medium-12.columns.slices#new_slice
+      %thead
+        %tr
+          %th
+            %h5 New Slice
+      %tbody#slice-panel
+        %tr.connectedSortable
+          %td Drag and drop steps from any flow
+
+
+:javascript
+  var project_slice_url = '/project/' + $('#project-content').data("projectId") + '/slice';
+  $('table.flow-steps tr').sortable({
+    helper: "clone",
+    connectWith: ".connectedSortable",
+  }).disableSelection();
+
+  $('#slice-panel tr').sortable({
+    helper: "clone",
+    connectWith: ".connectedSortable",
+  }).disableSelection();
+
+
+  $('#slice-panel tr').on( "sortreceive", function( event, ui ) { 
+    $(this).tableSortable();
+    $('.connectedSortable').sortable().disableSelection();
+
+    $.ajax({
+      url: project_slice_url,
+      type: 'PUT', 
+      data: {step: 'id', sortaction: 'add'}
+    }); 
+  });
+
+  $('#slice-panel tr').on( "sortremove", function( event, ui ) { 
+    $.ajax({
+      url: project_slice_url,
+      type: 'PUT', 
+      data: {step: 'id', sortaction: 'remove'}
+    }); 
+  });

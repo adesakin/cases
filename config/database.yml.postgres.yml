@@ -1,0 +1,28 @@
+
+
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: cases_db
+  pool: 5
+  timeout: 5000
+  username: appuser
+  password: Neue.P455
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: cases_db_test
+  pool: 5
+  timeout: 5000
+  username: appuser
+  password: Neue.P455
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: cases_db
+  pool: 40
+  timeout: 5000
+  username: appuser
+  password: Neue.P455

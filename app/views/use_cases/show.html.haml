@@ -1,32 +1,33 @@
-%h3= "#{@project.name} - #{@use_case.name}" 
+#project-content{:"data-project-id" => @project.id} 
+  %h3= "#{@project.name} - #{@use_case.name}" 
 
-%div
-  %h4= link_to 'Back to Use Cases', project_path(@use_case.project)
-  .large-4.medium-4.small-6.columns{style: "padding:0;"}
-  .large-8.medium-8.small-6.columns{style: "padding:0;"}
-    #project_use_case_placeholder
-
-
-
-%p#notice= notice
+  %div
+    %h4= link_to 'Back to Use Cases', project_path(@use_case.project)
+    .large-4.medium-4.small-6.columns{style: "padding:0;"}
+    .large-8.medium-8.small-6.columns{style: "padding:0;"}
+      #project_use_case_placeholder
 
 
-= render '/use_cases/use_case_detail'
+
+  %p#notice= notice
 
 
-= content_for :right_yield do
-  %dl.tabs{"data-options" => "deep_linking:true", "data-tab" => ""}
-    %dd
-      = content_tag(:a, 'Documents', href: "#documents")
-    %dd
-      = content_tag(:a, 'Slices', href: "#splices")
+  = render '/use_cases/use_case_detail'
 
-  .tabs-content
-    #documents.content
-      .uc-display
-        = render 'use_case_doc_form'
-        = render 'use_case_docs'
 
-    #splices.content
-      .uc-splice
-    
+  = content_for :right_yield do
+    %dl.tabs{"data-options" => "deep_linking:true", "data-tab" => ""}
+      %dd
+        = content_tag(:a, 'Documents', href: "#documents")
+      %dd
+        = content_tag(:a, 'Slices', href: "#slices")
+
+    .tabs-content
+      #documents.content
+        .uc-display
+          = render 'use_case_doc_form'
+          = render 'use_case_docs'
+
+      #slices.content
+        .uc-slice
+          = render 'use_case_slice'

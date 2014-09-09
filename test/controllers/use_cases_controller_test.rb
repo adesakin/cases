@@ -44,7 +44,7 @@ class UseCasesControllerTest < ActionController::TestCase
     assert_difference('UseCase.count', -1) do
       delete :destroy, :project_id => @use_case.project, id: @use_case
     end
-
+    
     assert_redirected_to project_use_cases_path
   end
 end

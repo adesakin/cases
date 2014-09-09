@@ -1,0 +1,7 @@
+.large-12.medium-12.columns
+  %hr{style: 'border: none;'}
+  = link_to 'Add Slice', new_project_slice_path(project_id: @project.id), remote: true, class: 'slice-add btn'
+
+  %hr{style: 'border: none; margin-bottom: 1rem;'}
+
+  %table.large-12.medium-12.columns.slices

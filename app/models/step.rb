@@ -1,5 +1,7 @@
 class Step < ActiveRecord::Base
   belongs_to :use_case
+  has_many :flows
+  has_many :slices, through: :flows
   after_create :assign_custom_id
 
   validate :type, presence: true

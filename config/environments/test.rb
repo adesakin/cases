@@ -16,6 +16,10 @@ Cases::Application.configure do
   config.serve_static_assets  = true
   config.static_cache_control = "public, max-age=3600"
 
+  # Allow the full fledge JS files to be loaded in order to test AJAX actions - bliss!
+  config.assets.compress = false
+  config.assets.debug = true
+
   # Show full error reports and disable caching.
   config.consider_all_requests_local       = true
   config.action_controller.perform_caching = false

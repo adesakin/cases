@@ -1,0 +1,7 @@
+%h1 Editing slice
+
+= render 'form'
+
+= link_to 'Show', project_slice_path(@slice.project, @slice)
+\|
+= link_to 'Back', project_slices_path(@slice.project)

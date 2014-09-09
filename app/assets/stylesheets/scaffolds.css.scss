@@ -124,7 +124,7 @@ textarea {
   }
 }
 
-table.flows{
+table.flows, table.slices{
   padding: 0;
   border: none;
   th {
@@ -139,4 +139,12 @@ table.flows{
   }
 }
 
+
+#right-yield {
+    padding-right: 0;
+    margin-top: 4.25em;
+    &.is_stuck {
+      margin-top: 1rem;
+    }
+}
 

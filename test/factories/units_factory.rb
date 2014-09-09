@@ -18,7 +18,6 @@ FactoryGirl.define do
 
   factory :project do
     name "Test Project"
-
   end
 
   factory :member do
@@ -40,7 +39,25 @@ FactoryGirl.define do
     description "Step description for user case" 
     type "Norm"
     use_case
+    slice
   end
+
+
+  factory :slice do
+    priority 1
+    workflow_state "Scoped"
+    estimate "10"
+    #release - to be implemented
+    order_priority 1
+    project
+  end
+
+  #   use_case_id: 1
+#   priority: 1
+#   workflow_state: MyString
+#   estimate: MyString
+#   release_id: 1
+#   order_priority: 1
 
 
 

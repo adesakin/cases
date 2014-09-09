@@ -1,0 +1,15 @@
+# # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+slice_one:
+  priority: 1
+  workflow_state: MyString
+  estimate: MyString
+  release_id: 1
+  order_priority: 1
+
+slice_two:
+  priority: 1
+  workflow_state: MyString
+  estimate: MyString
+  release_id: 1
+  order_priority: 1

@@ -1,1 +1,19 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+step_one:
+  description: User Performs Step Step One
+  use_case: uc_one
+  type: Standard
+  custom_id: SF.1.1
+
+step_two:
+  description: User Performs Step Step Two
+  use_case: uc_two
+  type: Standard
+  custom_id: SF.2.1
+
+step_three:
+  description: User Performs Step Step Three
+  use_case: uc_three
+  type: Standard
+  custom_id: SF.3.1
