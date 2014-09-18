@@ -1,21 +1,36 @@
 body {
   background-color: #fff;
   color: #333;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Roboto, Arial, Helvetica, sans-serif;
   font-size: 14px;
   line-height: 18px;
 }
 
 label{
-  font-family: Montserrat, Arial, Helvetica, sans-serif;
+  font-family: Roboto, Montserrat, Arial, Helvetica, sans-serif;
   font-size: 14px;
   line-height: 18px;
+  font-weight: 500;
 }
 
 p, ol, ul, td{
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Roboto, Arial, Helvetica, sans-serif;
   font-size: 14px;
-  line-height: 18px;
+  line-height: 20px;
+  li{
+    padding: 0.25rem 0;
+  }
+}
+
+
+
+td, li {
+  &.blue{
+    color: #23629F;
+  }
+  &.orange{
+    color: #ff5640;
+  }
 }
 
 pre {
@@ -35,6 +50,15 @@ a {
   #header & {
     color: #fff;
   }
+
+  .btn-link{
+    font-weight: bold;
+  }
+
+  &.slice-delete{
+    display: none;
+  }
+
 }
 
 div {
@@ -78,16 +102,28 @@ div {
   }
 }
 
-h1, h2, h3, h4, h5, h4.title, h5.title, dl.tabs a {
-  font-family: Montserrat, Helvetica, Arial, sans-serif;
+h1, h2, h3, h4, h5, h4.title, h5.subheader, h5.title, dl.tabs a {
+  font-family: Roboto, Montserrat, Helvetica, Arial, sans-serif;
   font-weight: bold;
-  h4, h5, h4.title, h5.title, dl.tabs a  {
-    font-size: 1.2em;
+  h4, h5, h4.title, h5.title, dl.tabs a {
+    font-size: 1.2rem;
   }
+}
 
+.subheader{
+  line-height: inherit;
+  font-color: inherit;
+  font-weight: inherit;
+  padding: 0.5em;
+  background-color: #efefef;
+}
+
+h5.subheader{
+  font-size: 1rem;
 }
 
 .btn {
+    font-family: Roboto, Montserrat, Helvetica, Arial, sans-serif;
     background-color: #004466;
     padding-top: 5px;
     padding-bottom: 5px;
@@ -97,6 +133,18 @@ h1, h2, h3, h4, h5, h4.title, h5.title, dl.tabs a {
     color: #fff; 
     font-size: 14px;
     font-weight: bold;
+}
+
+
+.panel {
+  margin-bottom: 1rem;
+  padding: 0.15rem;
+  background: #ffffff;
+  border: none;
+  ul {
+    padding-left: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
 }
 
 
@@ -120,7 +168,7 @@ textarea {
   -webkit-box-shadow: none;
   box-shadow: none;
   form & {
-    background-color: aliceblue;
+    background-color: ivory;
   }
 }
 

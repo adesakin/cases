@@ -24,30 +24,24 @@
       %td= best_in_place @use_case, :pre_condition, :url => project_use_case_path(@use_case.project, @use_case)
 
 
-%table#standard_flows.large-12.medium-12.columns.flows.flow-steps
-  %thead
-    %tr
-      %th
-        %h5 Standard flow
-  %tbody
+.large-12.medium-12.columns#standard_flows.panel.flows.flow-steps
+  %h5.subheader Standard Flow
+  %ol.connectedSortable.connectedSource
     - @use_case.steps.where(type: 'Standard').each do |step|
-      %tr.connectedSortable
-        %td{:"data-step-id" => step.id}= "#{step.custom_id} #{step.description}"
-    %tr
-      %td{style: "padding:0;"}= render 'step_form', locals: {object: @step_type = 'Standard'}
- 
+      %li.blue{:"data-step-id" => step.id}= step.full_desc
+
+  = render 'step_form', locals: {object: @step_type = 'Standard'}
 
 
-%table#alternate_flows.large-12.medium-12.columns.flows.flow-steps
-  %thead
-    %tr
-      %th
-        %h5 Alternate flow
-  - @use_case.steps.where(type: 'Alternate').each do |step|
-    %tr
-      %td.connectedSortable= "#{step.custom_id} #{step.description}"
-  %tr
-    %td{style: "padding:0;"}= render 'step_form', locals: {object: @step_type = 'Alternate'}
+
+.large-12.medium-12.columns#alternate_flows.panel.flows.flow-steps
+  %h5.subheader Alternate Flow
+  %ol.connectedSortable.connectedSource
+    - @use_case.steps.where(type: 'Alternate').each do |step|
+      %li.orange{:"data-step-id" => step.id}= step.full_desc
+
+  = render 'step_form', locals: {object: @step_type = 'Alternate'}
+
 
 
 %table#postcondition.large-12.medium-12.columns.flows

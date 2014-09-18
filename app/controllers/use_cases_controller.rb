@@ -10,7 +10,7 @@ class UseCasesController < ApplicationController
   # GET /use_cases/1
   # GET /use_cases/1.json
   def show
-
+    @slices = @use_case.slices.includes(:steps)
   end
 
   # GET /use_cases/new
@@ -67,6 +67,7 @@ class UseCasesController < ApplicationController
     end
   end
 
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_use_case
@@ -77,6 +78,6 @@ class UseCasesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def use_case_params
       params.require(:use_case).permit(:name, :description, :pre_condition, :standard_flow, :alternate_flow, :post_condition, :open_issue, :state, :project_id, \
-          pieces_attributes: [:name, :doc], steps_attributes: [:description, :state, :type])
+          pieces_attributes: [:name, :doc, :_destroy], steps_attributes: [:description, :state, :type, :_destroy])
     end
 end

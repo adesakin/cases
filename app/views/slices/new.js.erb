@@ -1,2 +1,49 @@
 
-$('a.slice-add.btn').parent().replaceWith('<%= escape_javascript(render 'new')%>');
+$('#slice-inner').html('<%= escape_javascript(render "new")%>');
+$('a.slice-cancel.btn').on('click', function(){
+      $('#slice-inner').html("");
+    });
+
+
+
+$('form a.slice-save').on('click', function(e){
+
+  var form = $(this).closest('form');
+  var url = form.data('form-url');
+
+  $.ajax({
+    url: url,
+    contentType: "application/json; charset=utf-8",
+    type: 'post',
+    dataType: 'json',
+    data: JSON.stringify(serialObj),
+    success: function(data){
+
+      var opt = ' <option value="' + data.id + '">' + data.id + '</option>';
+      var html = '';
+      html += '<div class="large-12 medium-12 columns headbar">';
+      html += '<p class="large-3 small-6 columns" style="padding:0;"><b>Estimate :</b><br>' + data.estimate + '<br></p>';
+      html += '<p class="large-3 small-6 columns" style="padding:0;"><b>Status :</b><br>' + data.workflow_state + '<br></p>';
+      html += '<p class="large-3 small-6 columns" style="padding:0;"><b>Release :</b><br>' + data.release_id  + '<br></p>';
+      html += '<p class="large-3 small-6 columns" style="padding:0;"><b>Priority :</b><br>' + data.order_priority + '<br></p>';
+      html += '<hr style="border:salmon 1px solid;">';
+      html += '</div>';
+
+      var steps = '';
+      steps = '<div class="large-12 medium-12 columns slice-steps">';
+      steps += '<ul class="square">';
+      if(data.steps != ""){
+        $.each(data.steps, function(stepIndex, step){
+          steps += '<li>' + step.full_desc + '</li>'
+        });              
+      }
+      steps += '</ul></div>';
+      $('#slice-inner').html(html + steps);
+      $(opt).appendTo('select#slice');
+      $('select#slice').val(data.id);
+      $('a.slice-delete').show();
+    }
+  });
+  e.preventDefault();
+
+});

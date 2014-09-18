@@ -1,58 +1,79 @@
-= simple_form_for @slice, url: project_slices_path(project_id: @slice.project.id), html: { novalidate: false }, remote: true do |f|
-
-  = f.error_notification
-
-  .large-12.medium-12.columns
-    %hr{style: 'border: none;'}
-    = f.button :submit, "Save Slice", class: 'slice-save btn' 
-    /= link_to 'Save Slice', project_slices_path(project_id: @project.id), remote: true, class: 'slice-save btn'
+= form_tag project_slices_path(project_id: @slice.project.id), class: "new_slice", :"data-form-url" =>project_slices_path(project_id: @slice.project.id), remote: true do
+  .large-12.medium-12.columns 
+    = content_tag(:a, "Save Slice", class: 'slice-save btn') 
     .right
-      = link_to 'Cancel', option_project_slices_path(project_id: @project.id), method: 'post', remote: true, class: 'slice-cancel btn'
+      = content_tag(:a, 'Cancel', class: 'slice-cancel btn')
     %hr{style: 'border: none; margin-bottom: 1rem;'}
-    = hidden_field_tag :flow_array
-    = f.input :estimate
-    = f.simple_fields_for :flows, @slice.flows.build do |flow|
-      = flow.input :step_id, as: 'hidden'
+    = hidden_field_tag :flow_list
 
 
-    %table.large-12.medium-12.columns.slices#new_slice
-      %thead
-        %tr
-          %th
-            %h5 New Slice
-      %tbody#slice-panel
-        %tr.connectedSortable
-          %td Drag and drop steps from any flow
+    .large-12.medium-12.columns.slice#new_slice_panel.panel
+      %h5.subheader New Slice
+      %ol.square#slice-panel.connectedSortable
+        %li.instruct{style: "color: cornflowerblue;"} Drag and drop steps from any flow
+
 
 
 :javascript
+
+  var serialObj = {};
   var project_slice_url = '/project/' + $('#project-content').data("projectId") + '/slice';
-  $('table.flow-steps tr').sortable({
-    helper: "clone",
-    connectWith: ".connectedSortable",
+  $('#new_slice_panel #slice-panel').sortable({
+    connectWith: ".connectedSource",
+    helper: function (e, li) {
+    this.copyHelper = li.clone().insertAfter(li);
+    $(this).data('copied', false);
+    return li.clone();
+  },
+  stop: function () {
+    var copied = $(this).data('copied');
+    if (!copied) {
+      this.copyHelper.remove();
+    }
+      this.copyHelper = null;
+  }
+    
   }).disableSelection();
 
-  $('#slice-panel tr').sortable({
-    helper: "clone",
-    connectWith: ".connectedSortable",
-  }).disableSelection();
 
 
-  $('#slice-panel tr').on( "sortreceive", function( event, ui ) { 
-    $(this).tableSortable();
-    $('.connectedSortable').sortable().disableSelection();
 
-    $.ajax({
-      url: project_slice_url,
-      type: 'PUT', 
-      data: {step: 'id', sortaction: 'add'}
-    }); 
+
+
+ 
+  $('#new_slice_panel #slice-panel').on( "sortreceive", function( event, ui ) { 
+    if($(this).children().length > 1){
+      $('#slice-panel li.instruct').hide();
+    } else {
+      $('#slice-panel li.instruct').show();
+    }
+    ui.sender.data('copied', true);
+
+    var sliceObj = {};
+    var innerObj = {};
+    serialObj = {};
+    var c = 0;
+    $('#new_slice_panel #slice-panel li').each(function(){
+      sid = $(this).data('step-id');
+      if(sid){
+        inner = {};
+        inner["step_id"] = sid;
+        innerObj[c] = inner;
+        c += 1;
+      }
+    });
+    sliceObj["flows_attributes"] =  innerObj;
+    serialObj["project_id"] = $('#project-content').data('project-id');
+    serialObj["slice"] = sliceObj;
+
   });
 
-  $('#slice-panel tr').on( "sortremove", function( event, ui ) { 
-    $.ajax({
-      url: project_slice_url,
-      type: 'PUT', 
-      data: {step: 'id', sortaction: 'remove'}
-    }); 
+  $('#new_slice_panel #slice-panel').on( "sortremove", function( event, ui ) { 
+    if($(this).children().length > 1){
+      $('#slice-panel li.instruct').hide();
+    } else {
+      $('#slice-panel li.instruct').show();
+    }
+    var flow_list_ids = $(this).closest('ul').sortable("toArray", {attribute: "data-step-id"});
+    $('input#flow_list').val(flow_list_ids);
   });

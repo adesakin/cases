@@ -1,0 +1,24 @@
+
+%hr{style: "border:none;"}
+
+.large-12.medium-12.columns.selectbar{style: "padding:0;"}
+  .large-4.small-6.columns
+    = label_tag :slice, 'Slice Selection'
+    = select_tag :slice, options_from_collection_for_select(@slices, :id, :id),  prompt: 'Choose a slice'
+
+  .large-4.small-6.columns.right
+    = link_to(new_project_slice_path(project_id: @project.id, use_case_id: @use_case.id), class: 'slice-add', remote: true) do
+      %i.fi-plus
+      Add Slice
+    &nbsp;
+    = link_to(new_project_slice_path(project_id: @project.id, use_case_id: @use_case.id), class: 'slice-delete', remote: true) do
+      %i.fi-minus
+      Del Slice
+
+
+
+%hr{style: "border:none;"}
+
+#slice-inner
+
+

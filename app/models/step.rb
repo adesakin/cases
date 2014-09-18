@@ -16,5 +16,9 @@ class Step < ActiveRecord::Base
     end
   end
 
+  def full_desc
+    "#{self.custom_id} #{self.description}"
+  end
+
 
 end

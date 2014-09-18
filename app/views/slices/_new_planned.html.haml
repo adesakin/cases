@@ -1,0 +1,55 @@
+= simple_form_for @slice, url: project_slices_path(project_id: @slice.project.id), html: { novalidate: false }, remote: true do |f|
+
+  
+
+  .large-12.medium-12.columns
+    = f.error_notification  
+    = f.button :submit, "Save Slice", class: 'slice-save btn' 
+    .right
+      = content_tag(:a, 'Cancel', class: 'slice-cancel btn')
+    %hr{style: 'border: none; margin-bottom: 1rem;'}
+    = f.simple_fields_for :flows, @slice.flows.build do |flow|
+      = flow.input :step_id, as: 'hidden'
+
+
+    %table.large-12.medium-12.columns.slices#new_slice
+      %thead
+        %tr
+          %th
+            %h5 New Slice
+      %tbody#slice-panel
+        %tr.connectedSortable
+          %td.blue.instruct Drag and drop steps from any flow
+
+
+:javascript
+  var v
+  var project_slice_url = '/project/' + $('#project-content').data("projectId") + '/slice';
+  $('table.flow-steps tr').sortable({
+    helper: "clone",
+    connectWith: ".connectedSortable",
+  }).disableSelection();
+
+  $('#slice-panel tr').sortable({
+    helper: "clone",
+    connectWith: ".connectedSortable",
+  }).disableSelection();
+
+
+  $('#slice-panel tr').on( "sortreceive", function( event, ui ) { 
+    alert('Received a new step');
+    var new_step = $(this).tableSortable();
+    console.log(new_step);
+    v = ui.item.data('step-id');
+    console.log(v);
+    $('.connectedSortable').sortable().disableSelection();
+    return $(document).insertStep(v);
+  });
+
+  $('#slice-panel tr').on( "sortremove", function( event, ui ) { 
+    $.ajax({
+      url: project_slice_url,
+      type: 'PUT', 
+      data: {step: 'id', sortaction: 'remove'}
+    }); 
+  });

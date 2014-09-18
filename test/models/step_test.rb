@@ -30,6 +30,10 @@ class StepTest < ActiveSupport::TestCase
     end
   end
 
+  test "full description for step" do
+    @step.full_desc.must_equal "#{@step.custom_id} #{@step.description}"
+  end
+
   test "assign custom id" do
     @step.save
     @next_standard = @use_case.steps.create(type: 'Standard')

@@ -12,22 +12,25 @@
   %p#notice= notice
 
 
-  = render '/use_cases/use_case_detail'
+  = render '/use_cases/detail'
 
 
   = content_for :right_yield do
     %dl.tabs{"data-options" => "deep_linking:true", "data-tab" => ""}
+      %dd.active
+        = content_tag(:a, 'Slices', href: "#slices")
       %dd
         = content_tag(:a, 'Documents', href: "#documents")
-      %dd
-        = content_tag(:a, 'Slices', href: "#slices")
+
 
     .tabs-content
+      #slices.content
+        .uc-slice
+          = render '/slices/show'
+
       #documents.content
         .uc-display
           = render 'use_case_doc_form'
           = render 'use_case_docs'
 
-      #slices.content
-        .uc-slice
-          = render 'use_case_slice'
+
