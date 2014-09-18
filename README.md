@@ -29,7 +29,7 @@ Let's just try to apply a similar idea in developing this application by identif
 - [x] Access Use Cases
 - [x] Manage Members
 - [x] Manage Use Cases Documents
-- [ ] Slice Use Cases
+- [x] Slice Use Cases
 - [ ] Prepare and Analyze Use Case Slice
 - [ ] Inspect and Adapt Use Case Slice
 
