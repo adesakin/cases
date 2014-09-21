@@ -5,8 +5,8 @@ class ManageUseCaseStepsTest < ActionDispatch::IntegrationTest
     @use_case = create(:use_case)
     user_sign_in
     visit root_path
-    find('table#projects', text: 'Test Project').click_link(@use_case.project.name)
-    find('table#project_use_cases').click_link(@use_case.name)
+    find('ul#projects', text: 'Test Project').click_link(@use_case.project.name)
+    find('ul#project_use_cases').click_link(@use_case.name)
   end
 
   def teardown

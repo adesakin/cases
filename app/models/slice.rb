@@ -1,6 +1,6 @@
 class Slice < ActiveRecord::Base
   belongs_to :project
-  has_many :flows
+  has_many :flows, dependent: :destroy
   has_many :steps, through: :flows
   accepts_nested_attributes_for :flows, :reject_if => :all_blank, :allow_destroy => true
   #validate :has_steps

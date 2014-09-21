@@ -1,0 +1,18 @@
+- unless @projects.nil?
+  %ul#projects.table
+    .table-row.table-header-group
+      %li
+      %li ID
+      %li Project Name
+      %li Cases
+      %li Project Activity
+
+    - @projects.each do |project|
+      .table-row{:class => "#{cycle('odd','even')}" }
+        %li
+          %i.icon-file-powerpoint
+        %li{class: "project_id #{project.id}"}= project.id
+        %li= link_to project.name, project
+        %li= link_to project.use_cases.count, project_path(project)
+        %li= time_ago_in_words(project.updated_at)  
+

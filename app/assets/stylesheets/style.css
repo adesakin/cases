@@ -18,6 +18,72 @@
          url('../fonts/montserrat-bold.svg#MontserratBold') format('svg');
 }
 
+@font-face {
+    font-family: 'icomoon';
+    src:url('../fonts/icomoon.eot?p6rmxv');
+    src:url('../fonts/icomoon.eot?#iefixp6rmxv') format('embedded-opentype'),
+        url('../fonts/icomoon.woff?p6rmxv') format('woff'),
+        url('../fonts/icomoon.ttf?p6rmxv') format('truetype'),
+        url('../fonts/icomoon.svg?p6rmxv#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+    font-family: 'icomoon';
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-newspaper:before {
+    content: "\e604";
+}
+.icon-file:before {
+    content: "\e605";
+}
+.icon-copy:before {
+    content: "\e606";
+}
+.icon-copy2:before {
+    content: "\e600";
+}
+.icon-stack:before {
+    content: "\e601";
+}
+.icon-folder:before {
+    content: "\e602";
+}
+.icon-folder-open:before {
+    content: "\e603";
+}
+.icon-cabinet:before {
+    content: "\e607";
+}
+.icon-drawer:before {
+    content: "\e608";
+}
+.icon-users:before {
+    content: "\e609";
+}
+.icon-list:before {
+    content: "\e60a";
+}
+.icon-newtab:before {
+    content: "\e60b";
+}
+.icon-file-powerpoint:before {
+    content: "\e60c";
+}
+
+
 
 * {
 	margin:0;
@@ -58,7 +124,8 @@ b label {
 }
 
 ul.sub-nav {
-    margin-top: 1em;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
 }
 
 .tabs-content > .content {

@@ -5,6 +5,7 @@ class AccessProjectUseCaseTest < ActionDispatch::IntegrationTest
     @use_case = create(:use_case)
     user_sign_in
     visit root_path
+    find('ul#projects', text: 'Test Project').click_link(@use_case.project.name)
   end
 
   def teardown
@@ -12,15 +13,14 @@ class AccessProjectUseCaseTest < ActionDispatch::IntegrationTest
   end
 
   test 'access project specific page with use cases listed' do
-  	find('table#projects', text: 'Test Project').click_link(@use_case.project.name)
+  	
   	URI.parse(current_url).request_uri.must_equal project_path(@use_case.project)
   	@use_cases = @use_case.project.use_cases
-  	use_case_rows = page.all('table#project_use_cases tbody tr')
+  	use_case_rows = page.all('ul#project_use_cases li.use_case_id')
   	@use_cases.count.must_equal use_case_rows.count
   end
 
   test 'create a use case from project list page' do
-    find('table#projects', text: 'Test Project').click_link(@use_case.project.name)
   	click_on('New Use Case')
   	URI.parse(current_url).request_uri.must_equal new_project_use_case_path(@use_case.project)
     @use_case_2 = UseCase.new(name: "View Use Case Diagram", description: "As a user I want to view use case diagram", \
@@ -37,23 +37,20 @@ class AccessProjectUseCaseTest < ActionDispatch::IntegrationTest
   end
 
   test 'return to project use cases after accessing its details' do
-    find('table#projects', text: 'Test Project').click_link(@use_case.project.name)
-    find('table#project_use_cases').click_link(@use_case.name)
+    find('ul#project_use_cases').click_link(@use_case.name)
     click_link('Back to Use Cases')
     current_path.must_equal  project_path(@use_case.project)
   end
 
 
   test 'return to project use cases after click on new' do
-    find('table#projects', text: 'Test Project').click_link(@use_case.project.name)
     click_on('New Use Case')
     click_link('Back to Use Cases')
     current_path.must_equal  project_path(@use_case.project)
   end
 
   test 'use case has sub-section for documents' do
-    find('table#projects', text: 'Test Project').click_link(@use_case.project.name)
-    find('table#project_use_cases').click_link(@use_case.name)
+    find('ul#project_use_cases').click_link(@use_case.name)
     within(:css, '#right-yield') do
       page.must_have_css('.tabs', text: 'Documents' )
       find('.tabs', text: 'Documents' ).click

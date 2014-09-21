@@ -1,7 +1,4 @@
-%h3= @project.name
-
 %div
-  %h4= link_to "Back to Projects", home_index_path
   .large-4.medium-4.small-6.columns{style: "padding:0;"}
     = link_to 'New Use Case', new_project_use_case_path(project_id: @project.id), class: 'btn button'
 
@@ -13,5 +10,5 @@
   &nbsp;
 
 
-= render '/use_cases/table_use_cases'
+= render '/use_cases/use_cases'
 

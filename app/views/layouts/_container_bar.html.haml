@@ -1,0 +1,28 @@
+- unless @project.nil?
+  #container-bar
+    %div{"data-magellan-expedition" => " "}
+      %dl.sub-nav
+        .large-4.columns
+          %dd
+            = link_to @project.name, project_path(@project), class: "statement"
+        .large-8.columns.hide-for-small{style: "padding-left:0;"}
+          %dd{"data-magellan-arrival" => "build"}
+            = link_to project_use_cases_path(@project) do
+              %span
+                %i.icon-stack
+                %span.hide-for-small Cases
+          %dd{"data-magellan-arrival" => "js"}
+            %a{:href => "#build"} 
+              %span
+                %i.fi-page-multiple
+                %span.hide-for-small Slices
+          %dd{"data-magellan-arrival" => "js"}
+            %a{:href => "#build"} 
+              %span
+                %i.fi-results
+                %span.hide-for-small Releases
+          %dd{"data-magellan-arrival" => "js"}
+            %a{:href => "#js"} 
+              %span
+                %i.fi-info
+                %span.hide-for-small Info

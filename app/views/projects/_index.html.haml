@@ -2,9 +2,12 @@
 
 %div
   %br
-  .large-4.medium-4.small-6.columns{style: "padding:0;"}
-    = link_to 'New Project', new_project_path, class: 'btn button', remote: true
-  .large-8.medium-8.small-6.columns{style: "padding:0;"}
+  .large-4.medium-4.small-1.columns.initial{style: "padding:0;"}
+    = link_to new_project_path, class: 'btn button', remote: true do
+      %span
+        %i.fi-plus
+        %span.hide-for-small New Project
+  .large-8.medium-8.small-11.columns.left
     #new_project_placeholder
 
 %hr{style:"border:none;"}
@@ -14,6 +17,6 @@
     
 
 
-= render '/projects/table_projects'
+= render '/projects/projects'
 
 

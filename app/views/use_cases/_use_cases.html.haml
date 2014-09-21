@@ -1,0 +1,21 @@
+- unless @use_cases.nil?
+  %ul#project_use_cases.table
+    .table-row.table-header-group
+      %li
+      %li ID
+      %li Use Case Name
+      %li State
+      %li Rank
+
+    - @use_cases.each do |use_case|
+      .table-row{:class => "#{cycle('odd','even')}" }
+        %li
+          %i.icon-file-powerpoint
+        %li{class: "use_case_id #{use_case.id}"}= use_case.id
+        %li= link_to use_case.name, project_use_case_path(project_id: use_case.project.id, id: use_case.id)
+        %li
+          - unless use_case.workflow_state.nil?
+            = use_case.workflow_state.gsub!("_", " ").titleize 
+        %li  
+
+%br

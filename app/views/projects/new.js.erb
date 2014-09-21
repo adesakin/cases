@@ -1,2 +1,8 @@
 
-$('#new_project_placeholder').replaceWith('<div id="new_project_placeholder"><%= escape_javascript(render "/projects/form")%></div>')
+$('#new_project_placeholder').replaceWith('<div id="new_project_placeholder"><%= escape_javascript(render "/projects/form")%></div>');
+$('#new_project').toggle("slide", { direction: "left" }, 400);
+$('.initial').hide("slide", {direction: "left"}, 400);
+$(document).on("click", ".cancel-form", function(){
+  $(this).closest("form").closest("div").html("");
+  $('.initial').show();
+});

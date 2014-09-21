@@ -22,6 +22,38 @@ p, ol, ul, td{
   }
 }
 
+#container-bar{
+  z-index: 5;
+  .sub-nav {
+    background-color: #DC143C;
+    width: 100%;
+    margin-left:0;
+    & dt a, & dd a, & li a{
+      color: whitesmoke; 
+      font-size: 16px;
+      & span, & span i{
+        font-size: 16px;
+      }
+    }
+
+    & dd a.statement {
+      padding-left: 0;
+      font-size: 1.3rem;
+      font-weight: bold;
+      color: black;
+      &:hover {
+        background-color: inherit;
+      }
+    }
+  }
+  [data-magellan-expedition]{
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 0;
+  }
+}
+
+
 
 
 td, li {
@@ -72,8 +104,7 @@ div {
 }
 
 .field_with_errors {
-  padding: 2px;
-  display: table;
+  padding: 0;
   label {
     color: red;
   }
@@ -122,17 +153,21 @@ h5.subheader{
   font-size: 1rem;
 }
 
-.btn {
+.btn, button.btn {
     font-family: Roboto, Montserrat, Helvetica, Arial, sans-serif;
     background-color: #004466;
     padding-top: 5px;
     padding-bottom: 5px;
-    padding-left: 10px;
-    padding-right: 10px;
+    padding-left: 6px;
+    padding-right: 6px;
     border: none;
     color: #fff; 
     font-size: 14px;
     font-weight: bold;
+    &.postfix {
+      height: inherit;
+      line-height: inherit;
+    }
 }
 
 
@@ -196,3 +231,43 @@ table.flows, table.slices{
     }
 }
 
+ul.table, div.table{
+  display: table;
+  margin-left: 0;
+  width: 100%;
+  .table-row {
+    display: table-row;
+    [class^="icon-"], [class*=" icon-"]{
+      color: crimson;
+    }
+
+    &.even{
+      background-color: aliceblue;
+    }
+
+    li, .table-cell {
+      display: table-cell;
+      padding-left: 0.5em;
+      padding-right: 0.5em;
+    }
+    &.table-header-group{
+      background-color: #4682b4;
+      color: wheat;
+      display: table-header-group;
+      & li{
+        font-weight: bold;
+      }
+    }
+  }
+}
+
+form.hide, form.new_project {
+  display:none;
+}
+
+span.error, small.error{
+  padding:0;
+  margin-top:-1rem;
+  background-color: inherit;
+  color:crimson;
+}

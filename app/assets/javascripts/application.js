@@ -36,6 +36,11 @@ $(function(){
 
     jQuery(".best_in_place").best_in_place();
     $('#right-yield').stick_in_parent();
+    $('#container-bar').stick_in_parent();
+    $(document).on("click", ".cancel-form", function(){
+      $(this).closest("form").closest("div").html("");
+      $('.initial').show();
+    });
     $('select#slice').on('change', function(){
       var slice_id = $(this).val();
       var proj_id = $('#project-content').data('project-id');

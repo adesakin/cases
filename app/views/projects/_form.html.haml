@@ -1,14 +1,16 @@
-= simple_form_for @project, remote: true do |f|
-  - if @project.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@project.errors.count, "error")} prohibited this project from being saved:"
-      %ul
-        - @project.errors.full_messages.each do |msg|
-          %li= msg
+= simple_form_for @project,  html: { novalidate: false }, remote: true do |f|
+  .large-12.columns{style: "padding:0;"}
+    .row
+      .small-7.columns{style: "padding:0;"}
+        = f.input :name, label: false, placeholder: "Project Name", :input_html => {maxlength: 30, required: true}, required: true
+      .small-2.columns{style: "padding:0;"}
+        = button_tag class: "postfix btn" do
+          %span
+            %i.fi-save 
+            %span.hide-for-small Save
 
-  .field
-    %b= f.input :name, label: false, :input_html => {maxlength: 30}
-
-  .actions{style: 'display: none;'}
-    = f.submit 'Save'
-  
+      .small-3.columns
+        = content_tag :a, class:"inline-block cancel-form", remote: true do
+          %span{style: "color:crimson;"} 
+            %i.fi-x-circle{style: "font-size:1.2rem;"}
+            %span Cancel
