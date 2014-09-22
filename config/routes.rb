@@ -2,10 +2,12 @@ Cases::Application.routes.draw do
   
 
   get "reveal/piece"
+
   resources :members
   patch "members.:id" => 'members#update'
 
   resources :projects do
+    get "reveal/use_case"
     post "/slices/option" => 'slices#option'
     resources :use_cases
     resources :slices do 

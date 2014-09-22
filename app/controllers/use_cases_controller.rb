@@ -4,7 +4,8 @@ class UseCasesController < ApplicationController
   # GET /use_cases
   # GET /use_cases.json
   def index
-    @use_cases = UseCase.all
+    @project = Project.find(params[:project_id])
+    @use_cases = UseCase.where(project: @project)
   end
 
   # GET /use_cases/1
@@ -34,8 +35,10 @@ class UseCasesController < ApplicationController
     @use_case = @project.use_cases.build(use_case_params)
     respond_to do |format|
       if @use_case.save
+        @use_cases = @project.use_cases
         format.html { redirect_to project_use_case_path(@use_case.project, @use_case), notice: 'Use case was successfully created.' }
         format.json { render action: 'show', status: :created, location: @use_case }
+        format.js
       else
         format.html { render action: 'new' }
         format.json { render json: @use_case.errors, status: :unprocessable_entity }

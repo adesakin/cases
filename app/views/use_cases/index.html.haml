@@ -1,5 +1,23 @@
-%h4 Use Cases
+
+
+
+%div
+  %br
+  .large-4.medium-4.small-1.columns.initial{style: "padding:0;"}
+    = link_to new_project_use_case_path(project_id: @project.id), class: 'btn button', remote: true do
+      %span
+        %i.fi-plus
+        %span.hide-for-small New Use Case
+    %a#new_use_case_wizard{"data-reveal-id" => "myModal", "data-reveal-ajax" => project_reveal_use_case_path(project_id: @project.id)} 
+      %span
+        %i.icon-wand{style: "font-size:1.2rem;"}
+        %span.hide-for-small Wizard
+  .large-8.medium-8.small-11.columns.left
+    #new_project_use_case_placeholder
+
+
+%hr{style:"border:none;"}
+%p#notice
+  = notice
 
 = render '/use_cases/use_cases'
-
-= link_to 'New Use case', new_project_use_case_path

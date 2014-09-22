@@ -25,14 +25,20 @@ p, ol, ul, td{
 #container-bar{
   z-index: 5;
   .sub-nav {
-    background-color: #DC143C;
+    background-color: #ED7804;
+-webkit-box-shadow: inset 0px 0px 5px 0px rgba(196,98,1,1);
+-moz-box-shadow: inset 0px 0px 5px 0px rgba(196,98,1,1);
+box-shadow: inset 0px 0px 5px 0px rgba(196,98,1,1);
     width: 100%;
-    margin-left:0;
+    margin:0;
     & dt a, & dd a, & li a{
       color: whitesmoke; 
       font-size: 16px;
       & span, & span i{
         font-size: 16px;
+      }
+      &:hover {
+       color: #F5DEB3;
       }
     }
 
@@ -53,6 +59,12 @@ p, ol, ul, td{
   }
 }
 
+a#new_use_case_wizard{
+  &:hover{
+    background: inherit;
+    color: #ED7804;
+  }
+}
 
 
 
@@ -75,8 +87,8 @@ a {
   color: #23629F;
 
   &:hover {
-    color: #fff;
-    background-color: #000;
+    color: wheat;
+    background-color: inherit;
   }
 
   #header & {
@@ -238,7 +250,7 @@ ul.table, div.table{
   .table-row {
     display: table-row;
     [class^="icon-"], [class*=" icon-"]{
-      color: crimson;
+      color: teal;
     }
 
     &.even{
@@ -252,7 +264,7 @@ ul.table, div.table{
     }
     &.table-header-group{
       background-color: #4682b4;
-      color: wheat;
+      color: floralwhite;
       display: table-header-group;
       & li{
         font-weight: bold;
@@ -261,7 +273,7 @@ ul.table, div.table{
   }
 }
 
-form.hide, form.new_project {
+form.hide, form.new_project, form.new_use_case {
   display:none;
 }
 

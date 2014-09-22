@@ -1,0 +1,8 @@
+
+%body
+  #container.row
+    #content.large-12.medium-12.columns
+      = yield
+
+  #myModal.reveal-modal{"data-reveal" => ""}
+    %a.close-reveal-modal X

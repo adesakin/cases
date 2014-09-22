@@ -1,2 +1,10 @@
 
-$('#right-yield').html('<%= escape_javascript(render "use_cases/form")%>');
+$('#new_project_use_case_placeholder').replaceWith('<div id="new_project_use_case_placeholder"><%= escape_javascript(render "use_cases/form")%></div>');
+$('form#new_use_case').parent().parent().addClass('large-12');
+$('#new_use_case').toggle("slide", { direction: "left" }, 400);
+$('.initial').hide("slide", {direction: "left"}, 400);
+$(document).on("click", ".cancel-form", function(){
+  $(this).closest("form").closest("div").html("");
+  $('form#new_use_case').parent().parent().removeClass('large-12');
+  $('.initial').show("slide", {direction: "right"}, 400);
+});

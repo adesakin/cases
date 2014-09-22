@@ -43,6 +43,7 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
+
 .icon-newspaper:before {
     content: "\e604";
 }
@@ -70,8 +71,20 @@
 .icon-drawer:before {
     content: "\e608";
 }
+.icon-download:before {
+    content: "\e60d";
+}
+.icon-upload:before {
+    content: "\e60e";
+}
 .icon-users:before {
     content: "\e609";
+}
+.icon-cog:before {
+    content: "\e60f";
+}
+.icon-wand:before {
+    content: "\e610";
 }
 .icon-list:before {
     content: "\e60a";

@@ -1,33 +1,16 @@
+= simple_form_for @use_case, url: project_use_cases_path(project_id: @use_case.project.id), html: { novalidate: false }, remote:true do |f|
+  .large-12.columns{style: "padding:0;"}
+    .row
+      .small-7.columns{style: "padding:0;"}
+        = f.input :name, label: false, placeholder: "Use Case Name e.g. Create Projects", :input_html => {maxlength: 60, required: true}, required: true
+      .small-2.columns{style: "padding:0;"}
+        = button_tag class: "postfix btn" do
+          %span
+            %i.fi-save 
+            %span.hide-for-small Save
 
-= simple_form_for @use_case, url: project_use_cases_path(project_id: @use_case.project.id), html: { novalidate: false } do |f|
-  - if @use_case.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@use_case.errors.count, "error")} prohibited this use_case from being saved:"
-      %ul
-        - @use_case.errors.full_messages.each do |msg|
-          %li= msg
-
-  .actions.large-2.medium-2.columns
-    = f.submit 'Save', class: 'btn'
-
-  %hr{style:"border:none;"}
-  .notice
-    &nbsp;
-
-
-  .new-use-case-fields
-    %b= f.input :name, :wrapper_html => {class: 'field columns'}, input_html: {required: true}, required: true 
-    %b= f.input :description, :wrapper_html => {class: 'field columns'}, input_html: {required: true}, required: true 
-    %b= f.input :pre_condition, :wrapper_html => {class: 'field columns'}, required: false 
-    %b= f.input :standard_flow, :wrapper_html => {class: 'field columns'}, :input_html => {rows: 10, required: true}, required: true 
-    %b= f.input :alternate_flow, :wrapper_html => {class: 'field columns'}, :input_html => {rows: 10}, required: false
-    %b= f.input :post_condition, :wrapper_html => {class: 'field columns'}, required: false
-    %b= f.input :open_issue, :wrapper_html => {class: 'field columns'}, required: false
-
-
-    .field.columns
-      %b= f.label :state
-      = f.text_field :state
-
-    %hr{style: "border:none"}
-
+      .small-3.columns
+        = content_tag :a, class:"inline-block cancel-form", remote: true do
+          %span{style: "color:crimson;"} 
+            %i.fi-x-circle{style: "font-size:1.2rem;"}
+            %span Cancel

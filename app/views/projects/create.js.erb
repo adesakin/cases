@@ -1,3 +1,4 @@
 
 $('#new_project_placeholder').replaceWith('<div id="new_project_placeholder"><%= escape_javascript(render partial: "/projects/form")%></div>');
 $('ul#projects').replaceWith('<%= escape_javascript(render "/projects/projects")%>');
+$('.initial').show();

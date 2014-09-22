@@ -6,7 +6,7 @@ class UseCase < ActiveRecord::Base
   accepts_nested_attributes_for :steps, :reject_if => :all_blank, :allow_destroy => true
 
 
-  validates :project_id, :name, :description, :standard_flow, :presence => true
+  validates :project_id, :name, :presence => true
   after_commit :sync_project_time
 
   mount_uploader :doc, DocUploader
